@@ -1,4 +1,4 @@
-import 'package:agenda/screen/contato.dart';
+import 'package:agenda/screen/contatoScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,13 +10,13 @@ class AgendaApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Contatos",
-      darkTheme: themeApp(),
+      darkTheme: _themeApp(),
       home: ContatoScreen(),
     );
   }
 }
 
-themeApp() {
+_themeApp() {
   return ThemeData(
       primaryColor: Colors.grey[400],
       floatingActionButtonTheme:

@@ -1,6 +1,6 @@
 import 'package:agenda/database/contatosFactory.dart';
 import 'package:agenda/models/contato.dart';
-import 'package:agenda/screen/contato.dart';
+import 'package:agenda/screen/contatoScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 

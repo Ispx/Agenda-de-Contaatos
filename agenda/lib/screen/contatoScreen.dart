@@ -2,7 +2,7 @@ import 'package:agenda/components/listViewContato.dart';
 import 'package:agenda/components/load.dart';
 import 'package:agenda/database/contatosFactory.dart';
 import 'package:agenda/models/contato.dart';
-import 'package:agenda/screen/formulario.dart';
+import 'package:agenda/screen/formularioScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -30,8 +30,8 @@ class ContatoScreenState extends State<ContatoScreen> {
           child: futureContato()),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pop(
-              context, MaterialPageRoute(builder: (context) => Formulario()));
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => FormularioScreen()));
         },
         child: Icon(Icons.add),
       ),
