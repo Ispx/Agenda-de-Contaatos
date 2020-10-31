@@ -31,7 +31,7 @@ class ContatoScreenState extends State<ContatoScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => FormularioScreen()));
+              MaterialPageRoute(builder: (context) => FormularioScreen(null)));
         },
         child: Icon(Icons.add),
       ),

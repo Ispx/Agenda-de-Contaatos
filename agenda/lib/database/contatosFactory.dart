@@ -11,6 +11,12 @@ class ContatoFactory {
     return _database.insert(_tableContatos, contato.getMap());
   }
 
+  Future<int> edita(int id, Contato newContato) async {
+    _database = await createDatabase();
+    return _database.update(_tableContatos, newContato.getMap(),
+        where: "id = ?", whereArgs: [id]);
+  }
+
   Future<List<Contato>> ler() async {
     _database = await createDatabase();
     List<Contato> listaDeContatos = new List();
