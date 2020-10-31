@@ -28,6 +28,7 @@ class FormularioState extends State<FormularioScreen> {
   Widget build(BuildContext contextForm) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.brown[900],
         title: Text("Adicionar contato",
             style: TextStyle(fontWeight: FontWeight.bold)),
       ),

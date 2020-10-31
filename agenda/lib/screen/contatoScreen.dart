@@ -15,6 +15,7 @@ class ContatoScreenState extends State<ContatoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.brown[900],
         title: Text(
           "Contatos",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
@@ -23,12 +24,13 @@ class ContatoScreenState extends State<ContatoScreen> {
       body: Container(
           margin: EdgeInsets.only(bottom: 80),
           decoration: BoxDecoration(
-              color: Colors.grey[300],
+              color: Colors.brown[600],
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20))),
           child: futureContato()),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.brown[900],
         onPressed: () {
           Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => FormularioScreen(null)));

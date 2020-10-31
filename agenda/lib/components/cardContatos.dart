@@ -1,3 +1,4 @@
+import 'package:url_launcher/url_launcher.dart';
 import 'package:agenda/database/contatosFactory.dart';
 import 'package:agenda/models/contato.dart';
 import 'package:agenda/screen/contatoScreen.dart';
@@ -13,12 +14,23 @@ Widget cardContatos(Contato contato, BuildContext context) {
           child: InkWell(
               onTap: () {},
               child: CircleAvatar(
-                child: Text(contato.getNome().toString().substring(0, 1)),
+                backgroundColor: Colors.brown[800],
+                child: Text(
+                  contato.getNome().toString().substring(0, 1),
+                  style: TextStyle(color: Colors.white),
+                ),
               ))),
-      title: Text(contato.getNome()),
-      subtitle: Text(_mascara(contato.getTelefone())),
+      title: Text(
+        contato.getNome(),
+        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+      ),
+      subtitle: Text(
+        _mascara(contato.getTelefone()),
+        style: TextStyle(color: Colors.black),
+      ),
       trailing: Material(
         child: Container(
+          color: Colors.white,
           width: 80,
           height: 30,
           child: Row(
@@ -35,7 +47,9 @@ Widget cardContatos(Contato contato, BuildContext context) {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  _fazChamada(contato.getTelefone().toString());
+                },
                 child: Icon(
                   Icons.call,
                   color: Colors.green[400],
@@ -52,6 +66,14 @@ Widget cardContatos(Contato contato, BuildContext context) {
       },
     ),
   );
+}
+
+_fazChamada(String tel) async {
+  if (await canLaunch('tel:$tel')) {
+    await launch('tel:$tel');
+  } else {
+    throw 'Falha ao tentar fazer chamada';
+  }
 }
 
 _showDelete(Contato contato, BuildContext context) {
