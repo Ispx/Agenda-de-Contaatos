@@ -24,8 +24,13 @@ class FormularioScreen extends StatefulWidget {
 }
 
 class FormularioState extends State<FormularioScreen> {
-  GlobalKey scaffoldkey = GlobalKey<ScaffoldState>();
   Widget build(BuildContext contextForm) {
+    ContatoFactory().filtrar("I%").then((value) {
+      value.forEach((contato) {
+        String nome = contato.getNome();
+        print("Filtro: $nome");
+      });
+    });
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.brown[900],

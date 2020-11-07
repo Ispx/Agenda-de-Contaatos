@@ -17,6 +17,18 @@ class ContatoFactory {
         where: "id = ?", whereArgs: [id]);
   }
 
+  Future<List<Contato>> filtrar(String text) async {
+    text = text + "%";
+    _database = await createDatabase();
+    List<Map<String, dynamic>> listMap = await _database
+        .query(_tableContatos, where: "nome LIKE ?", whereArgs: [text]);
+    List<Contato> contatos = new List();
+    for (Map mapContato in listMap) {
+      contatos.add(Contato(mapContato['nome'], mapContato['telefone']));
+    }
+    return contatos;
+  }
+
   Future<List<Contato>> ler() async {
     _database = await createDatabase();
     List<Contato> listaDeContatos = new List();
