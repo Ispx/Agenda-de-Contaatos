@@ -3,6 +3,10 @@
 
 Este é um projeto pessoal, trata-se de uma agenda de contatos desenvolvido em Flutter que tem funcionalidades de criar, atualizar, editar, remover e filtrar contatos, como também possui funcionalidade para fazer chamadas.
 
+#### Vídeo demonstrativo
+[![Agenda de contatos](http://img.youtube.com/vi/Gr-nD5m-5fQ/0.jpg)](http://www.youtube.com/watch?v=Gr-nD5m-5fQ "Agenda de contatos")
+
+
 ## Instalar na máquina
 
 Para rodar este projeto em sua máquina basta clonar o mesmo e rodar em uma IDE que de suporte ao Flutter como VSCode ou Android Studio. 
