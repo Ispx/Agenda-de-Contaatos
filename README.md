@@ -3,7 +3,7 @@
 
 Este é um projeto pessoal, trata-se de uma agenda de contatos desenvolvido em Flutter que tem funcionalidades de criar, atualizar, editar, remover e filtrar contatos, como também possui funcionalidade para fazer chamadas.
 
-#### Vídeo demonstrativo
+#### [Vídeo demonstrativo](http://www.youtube.com/watch?v=Gr-nD5m-5fQ)
 [![Agenda de contatos](http://img.youtube.com/vi/Gr-nD5m-5fQ/0.jpg)](http://www.youtube.com/watch?v=Gr-nD5m-5fQ "Agenda de contatos")
 
 
@@ -18,10 +18,10 @@ Este aplicativo não está disponível na Play Store e nem na Apple Store. Porta
 
 ## Autor
 
-* **Isaque Paixão** - (https://github.com/Ispx)
+* [**Isaque Paixão**](https://www.linkedin.com/in/isaque-paix%C3%A3o-107661162/)
 
 
 ## Licença
 
-Este projeto é licenciado por BSD 2-Clause "Simplified" License  - veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes
+Este projeto é licenciado por BSD 2-Clause "Simplified" License  - veja o arquivo [LICENSE.md](https://github.com/Ispx/Agenda-de-contatos/blob/master/LICENSE) para mais detalhes
 
