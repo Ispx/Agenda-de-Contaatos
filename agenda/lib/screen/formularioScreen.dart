@@ -49,11 +49,6 @@ class FormularioState extends State<FormularioScreen> {
     );
   }
 
-  _validaContato(String nome, String numero) {
-    bool verify = nome != null && nome != "" && numero != null && numero != "";
-    return verify;
-  }
-
   _nomeForm(String text, TextInputType inputType) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -90,44 +85,48 @@ class FormularioState extends State<FormularioScreen> {
     );
   }
 
-  _norificacao(String text, Icon icon) {
-    return SnackBar(
-      content: Row(
-        children: [
-          icon,
-          Text(
-            text,
-            style: TextStyle(color: Colors.white),
-          ),
-        ],
-      ),
-      backgroundColor: Colors.blue,
+  _editaContato(Contato contato, BuildContext contextForm) {
+    Contato contatoEdit =
+        Contato(widget._nomeController.text, widget._numeroController.text);
+    ContatoFactory().edita(contato.getId(), contatoEdit).catchError((error) {
+      _alertaDadosInvalidos(contextForm, error.toString());
+    }).then((id) {
+      if (id > 0) {
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => ContatoScreen()),
+            (route) => false);
+      }
+    });
+  }
+
+  _alertaDadosInvalidos(BuildContext contextForm, String title) {
+    showDialog(
+      context: contextForm,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text("Preencha todos os campos corretamente."),
+          actions: [
+            FlatButton(
+                onPressed: () => Navigator.pop(context), child: Text('Voltar'))
+          ],
+        );
+      },
     );
   }
 
-  _editaContato(Contato contato) {
-    if (_validaContato(
-        widget._nomeController.text, widget._numeroController.text)) {
-      Contato contatoEdit =
-          Contato(widget._nomeController.text, widget._numeroController.text);
-      ContatoFactory().edita(contato.getId(), contatoEdit).whenComplete(() {
+  _criaContato(String nome, String numero, BuildContext contextForm) async {
+    await ContatoFactory().salvar(Contato(nome, numero)).catchError((error) {
+      _alertaDadosInvalidos(contextForm, error.toString());
+    }).then((id) {
+      if (id > 0) {
         Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (context) => ContatoScreen()),
             (route) => false);
-      });
-    }
-  }
-
-  _criaContato(String nome, String numero) {
-    if (_validaContato(nome, numero)) {
-      ContatoFactory().salvar(Contato(nome, numero)).whenComplete(() {
-        Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => ContatoScreen()),
-            (route) => false);
-      });
-    }
+      }
+    });
   }
 
   _buttonForm(String text, BuildContext context) {
@@ -136,11 +135,11 @@ class FormularioState extends State<FormularioScreen> {
       child: RaisedButton(
         onPressed: () {
           if (widget._contato != null) {
-            _editaContato(widget._contato);
+            _editaContato(widget._contato, context);
             return;
           }
-          _criaContato(
-              widget._nomeController.text, widget._numeroController.text);
+          _criaContato(widget._nomeController.text,
+              widget._numeroController.text, context);
         },
         child: Text(
           text,

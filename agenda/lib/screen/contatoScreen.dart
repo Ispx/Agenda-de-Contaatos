@@ -81,7 +81,9 @@ class ContatoScreenState extends State<ContatoScreen> {
         onSubmitted: (string) {
           setState(
             () {
-              if (string.trim() != "" || string.isNotEmpty) {
+              if (string.trim() != "" &&
+                  string.isNotEmpty &&
+                  ContatoFactory().filtrar(string) != null) {
                 widget.futureConsultas = ContatoFactory().filtrar(string);
                 return;
               }
@@ -107,9 +109,6 @@ class ContatoScreenState extends State<ContatoScreen> {
             break;
           case ConnectionState.done:
             List<Contato> lista = snapshot.data;
-            lista.forEach((element) {
-              print("Nome: " + element.getNome().toString());
-            });
             return ListViewContatos(lista, context);
             break;
         }

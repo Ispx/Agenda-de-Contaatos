@@ -7,11 +7,21 @@ class ContatoFactory {
   final String _tableContatos = "contato";
 
   Future<int> salvar(Contato contato) async {
+    _validaContato(contato);
     _database = await createDatabase();
     return _database.insert(_tableContatos, contato.getMap());
   }
 
+  _validaContato(Contato contato) {
+    if (contato.getNome() == null ||
+        contato.getNome() == "" ||
+        contato.getTelefone().toString().length < 11) {
+      throw Exception("Dados inválidos!");
+    }
+  }
+
   Future<int> edita(int id, Contato newContato) async {
+    _validaContato(newContato);
     _database = await createDatabase();
     return _database.update(_tableContatos, newContato.getMap(),
         where: "id = ?", whereArgs: [id]);
