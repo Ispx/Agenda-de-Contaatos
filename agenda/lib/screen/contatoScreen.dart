@@ -7,6 +7,7 @@ import 'package:agenda/models/contato.dart';
 import 'package:agenda/screen/formularioScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class ContatoScreen extends StatefulWidget {
   Future<List<Contato>> futureConsultas = ContatoFactory().ler();
@@ -28,8 +29,7 @@ class ContatoScreenState extends State<ContatoScreen> {
         children: [
           fitro(),
           Container(
-            height: 510,
-            margin: EdgeInsets.only(bottom: 80),
+            height: 620,
             decoration: BoxDecoration(
                 color: Colors.brown[600],
                 borderRadius: BorderRadius.only(

@@ -15,7 +15,7 @@ class ContatoFactory {
   _validaContato(Contato contato) {
     if (contato.getNome() == null ||
         contato.getNome() == "" ||
-        contato.getTelefone().toString().length < 11) {
+        contato.getTelefone().toString().length < 10) {
       throw Exception("Dados inválidos!");
     }
   }
