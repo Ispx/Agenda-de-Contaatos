@@ -1,27 +1,23 @@
+<h1 align="center"><u> Agenda de contatos </u></h1>
 
-# Agenda de contatos
-
-Este é um projeto pessoal, trata-se de uma agenda de contatos desenvolvido em Flutter que tem funcionalidades de criar, atualizar, editar, remover e filtrar contatos, como também possui funcionalidade para fazer chamadas.
-
-#### [Vídeo demonstrativo](http://www.youtube.com/watch?v=Gr-nD5m-5fQ)
-[![Agenda de contatos](http://img.youtube.com/vi/Gr-nD5m-5fQ/0.jpg)](http://www.youtube.com/watch?v=Gr-nD5m-5fQ "Agenda de contatos")
+<p align="center"> Este é um projeto pessoal, trata-se de uma agenda de contatos desenvolvido em Flutter que tem funcionalidades de criar, atualizar, editar, remover e filtrar contatos, como também possui funcionalidade para fazer chamadas. </p>
 
 
-## Instalar na máquina
-
-Para rodar este projeto em sua máquina basta clonar o mesmo e rodar em uma IDE que de suporte ao Flutter como VSCode ou Android Studio. 
 
 
-### Instalar no dispositívo móvel
+<h3>Tecnologias 🚀</h3>
+<ul type="squere">
+  <li> Flutter</li>
+  <li> SQFlite</li>
+  <li> URL LAUNCHER</li>
+</ul>
 
-Este aplicativo não está disponível na Play Store e nem na Apple Store. Portanto, para instalar o aplicativo no dispositivo móvel será necessário rodar o projeto diretamente no dispositivo, para isso basta conectar o mesmo na sua máquina através do cabo USB e dentro da IDE selecionar o dispositivo que deseja rodar o projeto.
-
-## Autor
-
-* [**Isaque Paixão**](https://www.linkedin.com/in/isaque-paix%C3%A3o-107661162/)
 
 
-## Licença
 
-Este projeto é licenciado por BSD 2-Clause "Simplified" License  - veja o arquivo [LICENSE.md](https://github.com/Ispx/Agenda-de-contatos/blob/master/LICENSE) para mais detalhes
+<h4>Autor</h4>
+<a href="https://www.linkedin.com/in/isaque-paixao/">Isaque Paixão</a>
 
+<h4>Licença</h4>
+
+<p>Este é um projeto licenciado por BSD 2-Clause "Simplified" License - veja o arquivo <a href="https://github.com/Ispx/Agenda-de-contatos/blob/master/LICENSE">[LICENSE.md]</a> para mais detalhes</p>
