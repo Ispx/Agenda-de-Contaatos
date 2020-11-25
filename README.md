@@ -3,8 +3,9 @@
 <p align="center"> Este é um projeto pessoal, trata-se de uma agenda de contatos desenvolvido em Flutter que tem funcionalidades de criar, atualizar, editar, remover e filtrar contatos, como também possui funcionalidade para fazer chamadas. </p>
 
 <br>
-<img src="agenda/lib/gif/projeto.gif">
-
+<p align="center">
+  <img src="agenda/lib/gif/projeto.gif">
+</p>
 
 <h4>Tecnologias</h4>
 
