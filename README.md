@@ -10,9 +10,9 @@
 <h4>Tecnologias</h4>
 
 <ul>
-  <li><h5 href="https://flutter.dev/">Flutter</h5></li>
-  <li><h5 href="https://pub.dev/packages/sqflite">SQLite</h5></li>
-  <li><h5 href="https://pub.dev/packages/url_launcher">URL Launcher</h5></li>
+  <li><a href="https://flutter.dev/">Flutter</a></li>
+  <li><a href="https://pub.dev/packages/sqflite">SQLite</a></li>
+  <li><a href="https://pub.dev/packages/url_launcher">URL Launcher</a></li>
 </ul>
 
 <h4>Funcionalidades</h4>
