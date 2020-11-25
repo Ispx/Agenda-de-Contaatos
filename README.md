@@ -16,9 +16,9 @@
 
 <h4>Funcionalidades</h4>
 
-- [x] Adicionar de contato
-- [x] Remover de contato
-- [x] Atualizar de contato
+- [x] Adicionar contato
+- [x] Remover contato
+- [x] Atualizar contato
 - [x] Chamada de ligação
 
 
