@@ -1,4 +1,4 @@
-<h1 align="center"><u> Agenda de contatos </u></h1>
+<h1 align="center"><u> :iphone: Agenda de contatos </u></h1>
 
 <p align="center"> Este é um projeto pessoal, trata-se de uma agenda de contatos desenvolvido em Flutter que tem funcionalidades de criar, atualizar, editar, remover e filtrar contatos, como também possui funcionalidade para fazer chamadas. </p>
 
@@ -7,7 +7,7 @@
   <img src="agenda/lib/gif/projeto.gif">
 </p>
 
-<h4>Tecnologias</h4>
+## :rocket: Tecnologias
 
 <ul>
   <li><a href="https://flutter.dev/">Flutter</a></li>
@@ -15,21 +15,28 @@
   <li><a href="https://pub.dev/packages/url_launcher">URL Launcher</a></li>
 </ul>
 
-<h4>Funcionalidades</h4>
+## :hammer_and_wrench: Funcionalidades
 
-- [x] Adicionar contato
-- [x] Remover contato
-- [x] Atualizar contato
-- [x] Chamada de ligação
+##### :white_check_mark: Adicionar contato
+##### :white_check_mark: Remover contato
+##### :white_check_mark: Atualizar contato
+##### :white_check_mark: Chamada de ligação
 
 
+## :information_source: Como Usar
+<ul>
+  <li><h5>Clone o projeto</h5></li>
+  <li><h5>Abra o mesmo em uma IDE que de suporte ao Flutter</h5></li>
+  <li><h5>Conecte seu dispositivo móvel na máquina e selecione o mesmo na IDE</h5></li>
+  <li><h5>Rode o projeto</h5></li>
+</ul>
 
-<h4>Autor</h4>
+## :frowning_man: Autor
 <a href="https://www.linkedin.com/in/isaque-paixao/">Isaque Paixão</a>
-<br>
+<p>
 <img src="https://img.shields.io/badge/Linkedin-Isaque%20Paix%C3%A3o-0000CD" href="https://www.linkedin.com/in/isaque-paixao/">
+</p>
 
-
-<h4>Licença</h4>
+## :memo: Licença
 <p>Este é um projeto licenciado por BSD 2-Clause "Simplified" License - veja o arquivo <a href="https://github.com/Ispx/Agenda-de-contatos/blob/master/LICENSE">[LICENSE.md]</a> para mais detalhes</p>
 <a href="https://github.com/Ispx/Agenda-de-contatos/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/Ispx/Agenda-de-contatos?color=0000CD"></a>
