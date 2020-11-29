@@ -7,6 +7,7 @@ class FormularioScreen extends StatefulWidget {
   Contato _contato;
   TextEditingController _nomeController;
   TextEditingController _numeroController;
+  GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   FormularioScreen(Contato contato) {
     if (contato != null) {
       _contato = contato;
@@ -25,15 +26,9 @@ class FormularioScreen extends StatefulWidget {
 
 class FormularioState extends State<FormularioScreen> {
   Widget build(BuildContext contextForm) {
-    ContatoFactory().filtrar("I%").then((value) {
-      value.forEach((contato) {
-        String nome = contato.getNome();
-        print("Filtro: $nome");
-      });
-    });
     return Scaffold(
+      key: widget._globalKey,
       appBar: AppBar(
-        backgroundColor: Colors.brown[900],
         title: Text("Adicionar contato",
             style: TextStyle(fontWeight: FontWeight.bold)),
       ),
@@ -129,17 +124,34 @@ class FormularioState extends State<FormularioScreen> {
     });
   }
 
+  _snackBarSucess() {
+    return widget._globalKey.currentState.showSnackBar(SnackBar(
+      content: Text("Salvo com Sucesso"),
+      backgroundColor: Colors.green[900],
+    ));
+  }
+
   _buttonForm(String text, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: RaisedButton(
-        onPressed: () {
+        onPressed: () async {
+          _snackBarSucess();
           if (widget._contato != null) {
-            _editaContato(widget._contato, context);
+            Future.delayed(Duration(seconds: 1), () async {
+              await _editaContato(widget._contato, context);
+            });
+
             return;
           }
-          _criaContato(widget._nomeController.text,
-              widget._numeroController.text, context);
+          _snackBarSucess();
+          Future.delayed(
+            Duration(seconds: 1),
+            () async {
+              await _criaContato(widget._nomeController.text,
+                  widget._numeroController.text, context);
+            },
+          );
         },
         child: Text(
           text,

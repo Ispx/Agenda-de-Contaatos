@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:agenda/components/listViewContato.dart';
 import 'package:agenda/components/load.dart';
 import 'package:agenda/database/contatosFactory.dart';
+import 'package:agenda/main.dart';
 import 'package:agenda/models/contato.dart';
 import 'package:agenda/screen/formularioScreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,28 +20,39 @@ class ContatoScreenState extends State<ContatoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.brown[900],
+        actions: [
+          IconButton(
+            icon: Icon(Icons.brightness_5),
+            onPressed: () {
+              setState(() {});
+            },
+          )
+        ],
         title: Text(
           "Contatos",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
-      body: ListView(
-        children: [
-          fitro(),
-          Container(
-            height: 620,
-            decoration: BoxDecoration(
-                color: Colors.brown[600],
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20))),
-            child: futureContato(widget.futureConsultas),
+      body: LayoutBuilder(
+        builder: (context, constrains) => SingleChildScrollView(
+          child: Column(
+            children: [
+              fitro(),
+              Container(
+                height: constrains.maxHeight - 170,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(15),
+                      bottomLeft: Radius.circular(15)),
+                  color: Colors.grey[400],
+                ),
+                child: futureContato(widget.futureConsultas),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.brown[900],
         onPressed: () {
           Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => FormularioScreen(null)));

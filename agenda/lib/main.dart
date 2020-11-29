@@ -5,12 +5,24 @@ void main() {
   runApp(AgendaApp());
 }
 
-class AgendaApp extends StatelessWidget {
+class AgendaApp extends StatefulWidget {
+  @override
+  _AgendaAppState createState() => _AgendaAppState();
+}
+
+modeThemeApp(ThemeMode theme) {
+  return theme;
+}
+
+class _AgendaAppState extends State<AgendaApp> {
+  ThemeMode themeMode = ThemeMode.light;
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Contatos",
-      darkTheme: _themeApp(),
+      theme: _themeApp(),
+      themeMode: themeMode,
+      darkTheme: ThemeData.dark(),
       home: ContatoScreen(),
     );
   }
@@ -18,7 +30,7 @@ class AgendaApp extends StatelessWidget {
 
 _themeApp() {
   return ThemeData(
-      primaryColor: Colors.brown[900],
+      primaryColor: Colors.blue[400],
       floatingActionButtonTheme:
           FloatingActionButtonThemeData(backgroundColor: Colors.blue[400]),
       primaryColorDark: Colors.grey[400]);

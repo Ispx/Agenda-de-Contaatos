@@ -14,7 +14,7 @@ Widget cardContatos(Contato contato, BuildContext context) {
           child: InkWell(
               onTap: () {},
               child: CircleAvatar(
-                backgroundColor: Colors.brown[800],
+                backgroundColor: Theme.of(context).primaryColor,
                 child: Text(
                   contato.getNome().toString().substring(0, 1),
                   style: TextStyle(color: Colors.white),
@@ -38,11 +38,12 @@ Widget cardContatos(Contato contato, BuildContext context) {
             children: [
               InkWell(
                 onTap: () {
-                  _showDelete(contato, context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => FormularioScreen(contato)));
                 },
                 child: Icon(
-                  Icons.delete_forever,
-                  color: Colors.red[400],
+                  Icons.edit,
+                  color: Colors.grey[700],
                   size: 30,
                 ),
               ),
@@ -60,9 +61,8 @@ Widget cardContatos(Contato contato, BuildContext context) {
           ),
         ),
       ),
-      onTap: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => FormularioScreen(contato)));
+      onLongPress: () {
+        _showDelete(contato, context);
       },
     ),
   );

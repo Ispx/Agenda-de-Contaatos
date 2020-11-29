@@ -43,7 +43,7 @@ class ContatoFactory {
     _database = await createDatabase();
     List<Contato> listaDeContatos = new List();
     List<Map<String, dynamic>> mapContatos =
-        await _database.query(_tableContatos);
+        await _database.query(_tableContatos, orderBy: "nome ASC");
 
     for (Map<String, dynamic> map in mapContatos) {
       Contato contato = new Contato(
