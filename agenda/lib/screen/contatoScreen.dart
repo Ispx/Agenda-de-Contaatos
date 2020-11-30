@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:ui';
 
 import 'package:agenda/components/listViewContato.dart';
@@ -5,28 +6,35 @@ import 'package:agenda/components/load.dart';
 import 'package:agenda/database/contatosFactory.dart';
 import 'package:agenda/main.dart';
 import 'package:agenda/models/contato.dart';
+import 'package:agenda/models/nofitiferTheme.dart';
 import 'package:agenda/screen/formularioScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class ContatoScreen extends StatefulWidget {
+  BuildContext context;
   Future<List<Contato>> futureConsultas = ContatoFactory().ler();
   ContatoScreenState createState() => ContatoScreenState();
 }
 
 class ContatoScreenState extends State<ContatoScreen> {
+  bool statusSwitch = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          IconButton(
-            icon: Icon(Icons.brightness_5),
-            onPressed: () {
-              setState(() {});
-            },
-          )
+          Switch(
+              value: statusSwitch,
+              onChanged: (statusCurrent) {
+                //value == true ? false : true;
+                statusSwitch = statusCurrent;
+                setState(() async {
+                  ThemeNotifier.setTheme(statusCurrent);
+                  return runApp(AgendaApp());
+                });
+              })
         ],
         title: Text(
           "Contatos",
@@ -37,7 +45,7 @@ class ContatoScreenState extends State<ContatoScreen> {
         builder: (context, constrains) => SingleChildScrollView(
           child: Column(
             children: [
-              fitro(),
+              filtro(),
               Container(
                 height: constrains.maxHeight - 170,
                 decoration: BoxDecoration(
@@ -62,7 +70,7 @@ class ContatoScreenState extends State<ContatoScreen> {
     );
   }
 
-  fitro() {
+  filtro() {
     TextEditingController textoFiltro = TextEditingController();
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 8, bottom: 8),
@@ -109,7 +117,7 @@ class ContatoScreenState extends State<ContatoScreen> {
 
   FutureBuilder futureContato(Future<List<Contato>> consulta) {
     return FutureBuilder<List<Contato>>(
-      future: Future.delayed(Duration(seconds: 2), () => consulta),
+      future: Future.delayed(Duration(seconds: 1), () => consulta),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.none:
