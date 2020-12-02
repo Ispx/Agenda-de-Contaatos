@@ -1,39 +1,35 @@
-import 'dart:collection';
 import 'dart:ui';
 
 import 'package:agenda/components/listViewContato.dart';
 import 'package:agenda/components/load.dart';
 import 'package:agenda/database/contatosFactory.dart';
-import 'package:agenda/main.dart';
 import 'package:agenda/models/contato.dart';
 import 'package:agenda/models/nofitiferTheme.dart';
 import 'package:agenda/screen/formularioScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 
 class ContatoScreen extends StatefulWidget {
-  BuildContext context;
   Future<List<Contato>> futureConsultas = ContatoFactory().ler();
   ContatoScreenState createState() => ContatoScreenState();
 }
 
 class ContatoScreenState extends State<ContatoScreen> {
-  bool statusSwitch = false;
   @override
   Widget build(BuildContext context) {
+    print(Provider.of<ThemeNotifier>(context).isDarkMode);
     return Scaffold(
       appBar: AppBar(
         actions: [
           Switch(
-              value: statusSwitch,
+              activeColor: Colors.blue[500],
+              value:
+                  Provider.of<ThemeNotifier>(context, listen: false).isDarkMode,
               onChanged: (statusCurrent) {
-                //value == true ? false : true;
-                statusSwitch = statusCurrent;
-                setState(() async {
-                  ThemeNotifier.setTheme(statusCurrent);
-                  return runApp(AgendaApp());
-                });
+                Provider.of<ThemeNotifier>(context, listen: false)
+                    .updateTheme();
               })
         ],
         title: Text(
@@ -52,7 +48,7 @@ class ContatoScreenState extends State<ContatoScreen> {
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(15),
                       bottomLeft: Radius.circular(15)),
-                  color: Colors.grey[400],
+                  color: Theme.of(context).cardColor,
                 ),
                 child: futureContato(widget.futureConsultas),
               ),
@@ -77,27 +73,28 @@ class ContatoScreenState extends State<ContatoScreen> {
       child: TextField(
         controller: textoFiltro,
         decoration: InputDecoration(
-          suffix: Container(
-            height: 28,
-            width: 80,
-            child: FlatButton(
-              onPressed: () {
-                setState(
-                  () {
-                    textoFiltro.text = "";
-                    widget.futureConsultas = ContatoFactory().ler();
-                  },
-                );
-              },
-              child: Text(
-                "Limpar",
-                style: TextStyle(fontSize: 12),
+            suffix: Container(
+              height: 28,
+              width: 80,
+              child: FlatButton(
+                onPressed: () {
+                  setState(
+                    () {
+                      textoFiltro.text = "";
+                      widget.futureConsultas = ContatoFactory().ler();
+                    },
+                  );
+                },
+                child: Text(
+                  "Limpar",
+                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                ),
+                highlightColor: Colors.blue[900],
+                disabledTextColor: Colors.grey,
               ),
-              highlightColor: Colors.blue[900],
             ),
-          ),
-          hintText: 'Filtrar contato',
-        ),
+            hintText: 'Filtrar contato',
+            hintStyle: TextStyle(color: Colors.grey)),
         onSubmitted: (string) {
           setState(
             () {

@@ -81,7 +81,7 @@ _showDelete(Contato contato, BuildContext context) {
     context: context,
     builder: (context) {
       return AlertDialog(
-        title: Text('Desejá realmente exluir:'),
+        title: Text('Confirme para exluir:'),
         actions: [
           FlatButton(
               onPressed: () {
