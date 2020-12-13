@@ -9,6 +9,7 @@ import 'package:agenda/screen/formularioScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class ContatoScreen extends StatefulWidget {
@@ -69,13 +70,16 @@ class ContatoScreenState extends State<ContatoScreen> {
   filtro() {
     TextEditingController textoFiltro = TextEditingController();
     return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15, top: 8, bottom: 8),
-      child: TextField(
-        controller: textoFiltro,
-        decoration: InputDecoration(
+        padding: const EdgeInsets.only(left: 15, right: 15, top: 8, bottom: 8),
+        child: TextField(
+          controller: textoFiltro,
+          decoration: InputDecoration(
+            hintText: 'Filtrar contato',
+            hintStyle:
+                TextStyle(color: Theme.of(context).textTheme.headline1.color),
             suffix: Container(
               height: 28,
-              width: 80,
+              width: 88,
               child: FlatButton(
                 onPressed: () {
                   setState(
@@ -85,31 +89,28 @@ class ContatoScreenState extends State<ContatoScreen> {
                     },
                   );
                 },
-                child: Text(
-                  "Limpar",
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
-                ),
+                child: Text("Limpar",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.headline1.color)),
                 highlightColor: Colors.blue[900],
                 disabledTextColor: Colors.grey,
               ),
             ),
-            hintText: 'Filtrar contato',
-            hintStyle: TextStyle(color: Colors.grey)),
-        onSubmitted: (string) {
-          setState(
-            () {
-              if (string.trim() != "" &&
-                  string.isNotEmpty &&
-                  ContatoFactory().filtrar(string) != null) {
-                widget.futureConsultas = ContatoFactory().filtrar(string);
-                return;
-              }
-              widget.futureConsultas = ContatoFactory().ler();
-            },
-          );
-        },
-      ),
-    );
+          ),
+          onSubmitted: (string) {
+            setState(
+              () {
+                if (string.trim() != "" &&
+                    string.isNotEmpty &&
+                    ContatoFactory().filtrar(string) != null) {
+                  widget.futureConsultas = ContatoFactory().filtrar(string);
+                  return;
+                }
+                widget.futureConsultas = ContatoFactory().ler();
+              },
+            );
+          },
+        ));
   }
 
   FutureBuilder futureContato(Future<List<Contato>> consulta) {

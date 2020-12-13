@@ -16,51 +16,33 @@ class AgendaApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Contatos",
-      theme: _themeApp(),
+      theme: _themeLightApp(),
       themeMode: Provider.of<ThemeNotifier>(context, listen: true).theme,
-      darkTheme: darkTheme,
+      darkTheme: _themeDarkApp(),
       home: ContatoScreen(),
     );
   }
 }
 
-_themeApp() {
+_themeLightApp() {
   return ThemeData(
       primaryColor: Colors.blue[400],
       cardColor: Colors.grey[400],
       iconTheme: IconThemeData(color: Colors.blueAccent[400]),
+      textTheme: TextTheme(headline1: TextStyle(color: Colors.grey)),
       floatingActionButtonTheme:
           FloatingActionButtonThemeData(backgroundColor: Colors.blue[400]),
       primaryColorDark: Colors.grey[400]);
 }
 
-ThemeData darkTheme = ThemeData(
-  scaffoldBackgroundColor: Colors.black,
-  primaryColor: Colors.blueAccent[400],
-  appBarTheme: AppBarTheme(
-    color: Colors.black,
-    iconTheme: IconThemeData(
-      color: Colors.white,
-    ),
-  ),
-  colorScheme: ColorScheme.light(
-    primary: Colors.black,
-    onPrimary: Colors.black,
-    primaryVariant: Colors.black,
-    secondary: Colors.blueAccent[400],
-  ),
-  cardColor: Colors.black,
-  iconTheme: IconThemeData(
-    color: Colors.white54,
-  ),
-  textTheme: TextTheme(
-    title: TextStyle(
-      color: Colors.white,
-      fontSize: 20.0,
-    ),
-    subtitle: TextStyle(
-      color: Colors.white70,
-      fontSize: 18.0,
-    ),
-  ),
-);
+_themeDarkApp() {
+  return ThemeData(
+      scaffoldBackgroundColor: Colors.black,
+      primaryColor: Colors.blueAccent[400],
+      textTheme: TextTheme(
+        subtitle2: TextStyle(color: Colors.white),
+        subtitle1: TextStyle(color: Colors.white), // <-- that's the one
+        headline1: TextStyle(color: Colors.white),
+      ),
+      cardColor: Colors.grey[900]);
+}

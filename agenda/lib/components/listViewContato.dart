@@ -1,6 +1,5 @@
 import 'package:agenda/components/cardContatos.dart';
 import 'package:agenda/models/contato.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 ListViewContatos(List<Contato> contatos, BuildContext contatosContext) {

@@ -54,8 +54,9 @@ class FormularioState extends State<FormularioScreen> {
         decoration: InputDecoration(
           suffixIcon: Icon(Icons.person),
           labelText: text,
-          labelStyle:
-              TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[600]),
+          labelStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).textTheme.headline1.color),
         ),
       ),
     );
@@ -69,13 +70,17 @@ class FormularioState extends State<FormularioScreen> {
         keyboardType: inputType,
         controller: widget._numeroController,
         decoration: InputDecoration(
-            suffixIcon: Icon(Icons.phone_android),
-            labelText: text,
-            labelStyle:
-                TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[600]),
-            hintText: 'XX  XXXX - XXXX',
-            hintStyle: TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.grey[400])),
+          suffixIcon: Icon(Icons.phone_android),
+          labelText: text,
+          labelStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).textTheme.headline1.color),
+          hintText: 'XX  XXXX - XXXX',
+          hintStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).textTheme.headline1.color,
+          ),
+        ),
       ),
     );
   }
@@ -87,10 +92,13 @@ class FormularioState extends State<FormularioScreen> {
       _alertaDadosInvalidos(contextForm, error.toString());
     }).then((id) {
       if (id > 0) {
-        Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => ContatoScreen()),
-            (route) => false);
+        _snackBarSucess();
+        Future.delayed(
+            Duration(seconds: 1),
+            () => Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => ContatoScreen()),
+                (route) => false));
       }
     });
   }
@@ -116,10 +124,13 @@ class FormularioState extends State<FormularioScreen> {
       _alertaDadosInvalidos(contextForm, error.toString());
     }).then((id) {
       if (id > 0) {
-        Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => ContatoScreen()),
-            (route) => false);
+        _snackBarSucess();
+        Future.delayed(
+            Duration(seconds: 1),
+            () => Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => ContatoScreen()),
+                (route) => false));
       }
     });
   }
@@ -136,7 +147,6 @@ class FormularioState extends State<FormularioScreen> {
       padding: const EdgeInsets.all(8.0),
       child: RaisedButton(
         onPressed: () async {
-          _snackBarSucess();
           if (widget._contato != null) {
             Future.delayed(Duration(seconds: 1), () async {
               await _editaContato(widget._contato, context);
@@ -144,7 +154,6 @@ class FormularioState extends State<FormularioScreen> {
 
             return;
           }
-          _snackBarSucess();
           Future.delayed(
             Duration(seconds: 1),
             () async {
