@@ -1,6 +1,6 @@
 <h1 align="center"><u> :iphone: Agenda de contatos </u></h1>
 
-<p align="center"> Este é um projeto pessoal, trata-se de uma agenda de contatos desenvolvido em Flutter que possui funcionalidades de persisstêncaia de dados, alteração de tema e chamadas de ligação. </p>
+<p align="center"> Este é um aplicativo de agenda de contatos desenvolvido em Flutter que possui funcionalidades de persistência de dados, alteração de tema e chamadas de ligação. </p>
 
 <br>
 <p align="center">
