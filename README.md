@@ -4,7 +4,7 @@
 
 <br>
 <p align="center">
-  <img src="agenda/lib/gif/projeto.gif">
+  <img src="agenda/lib/gif/projeto.gif" height="600">
 </p>
 
 ## :rocket: Tecnologias
@@ -17,9 +17,8 @@
 
 ## :hammer_and_wrench: Funcionalidades
 
-##### :white_check_mark: Adicionar contato
-##### :white_check_mark: Remover contato
-##### :white_check_mark: Atualizar contato
+##### :white_check_mark: Persistência de dados
+##### :white_check_mark: Alteração de tema (Dark/Light)
 ##### :white_check_mark: Chamada de ligação
 
 
