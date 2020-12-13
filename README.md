@@ -1,6 +1,6 @@
 <h1 align="center"><u> :iphone: Agenda de contatos </u></h1>
 
-<p align="center"> Este é um projeto pessoal, trata-se de uma agenda de contatos desenvolvido em Flutter que tem funcionalidades de criar, atualizar, editar, remover e filtrar contatos, como também possui funcionalidade para fazer chamadas. </p>
+<p align="center"> Este é um projeto pessoal, trata-se de uma agenda de contatos desenvolvido em Flutter que possui funcionalidades de persisstêncaia de dados, alteração de tema e chamadas de ligação. </p>
 
 <br>
 <p align="center">
